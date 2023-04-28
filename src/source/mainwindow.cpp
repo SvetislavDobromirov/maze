@@ -223,7 +223,7 @@ void MainWindow::mousePressEvent(QMouseEvent* event) {
             event->pos().y() > 3 && event->pos().y() < 500))
         return;
 
-    qDebug() <<  "Mouse pushed " << _number_of_click;
+    //qDebug() <<  "Mouse pushed " << _number_of_click;
     // qDebug() << QString::number(event->pos().x());
     // qDebug() << QString::number(event->pos().y());
     // Показывается ли лабиринт? Он показывается если:
@@ -239,17 +239,16 @@ void MainWindow::mousePressEvent(QMouseEvent* event) {
            // поле 500 х 500
            // Сдвиг 3
            // количеств
-           row = floor((event->pos().y() / 500.0) * maze_scheme.size_rows);
-           col = floor((event->pos().x() / 500.0) * maze_scheme.size_col);
+           row = std::chrono::floor((event->pos().y() / 500.0) * 
+           maze_scheme.size_rows);
+           col = std::chrono::floor((event->pos().x() / 500.0) 
+           * maze_scheme.size_col);
            radius_row = 500/maze_scheme.size_rows;
            radius_col =  500/maze_scheme.size_col;
            center_row =  500.0/maze_scheme.size_rows * (row) + (radius_row/2);
            center_cols =  500.0/maze_scheme.size_col * (col) + (radius_col/2);
        }
-        qDebug() << row << " "<<  col << " "<<
-                  radius_row << " "<< radius_col << " "<<
-                 center_row << " "<< center_cols;
-
+        
        switch(_number_of_click) {
         case 0:
            start_ball.is = true;

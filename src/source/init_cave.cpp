@@ -21,7 +21,7 @@ bool initCave::rand_solution(int random_value) {
 
     std::random_device device;
     std::mt19937 gen(device());
-    std::uniform_int_distribution<double> dist(1, 100);
+    std::uniform_int_distribution<int> dist(1, 100);
     for (int i = 0; i < 10; ++i) std::cout << dist(gen) << std::endl;
     int random_variable =  dist(gen);
     std::cout << "Rand variable " << random_variable << "Rand set: " << random_value << std::endl;
