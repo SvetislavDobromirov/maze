@@ -98,13 +98,21 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 }
             }
 
-            if (start_ball.is) {              
-               draw_ball( QImage("/Users/svetislavdobromirov/Documents/mouse.png"),
-                          start_ball, &painter);
+            if (start_ball.is) {
+                QImage image;
+                image.load("images/mouse.png");
+                 QColor color;
+                 color.setNamedColor("green");
+                draw_ball( image,
+                          start_ball, &painter, color);
                }
             if (finish_ball.is) {
-                draw_ball(QImage("/Users/svetislavdobromirov/Documents/cheese"),
-                          finish_ball, &painter);
+                QImage image;
+                image.load("images/cheese.png");
+                QColor color;
+                color.setNamedColor("red");
+                draw_ball(image,
+                          finish_ball, &painter, color);
             }
 
         }
@@ -307,10 +315,19 @@ void MainWindow::on_clear_maze_clicked()
     repaint();
 }
 
-void MainWindow::draw_ball(QImage image, baloon ball, QPainter * painter){
+void MainWindow::draw_ball(QImage image, baloon ball, QPainter * painter,  QColor color) {
+
     float radius = 0;
     ball.radius_x <= ball.radius_y ?
                   radius = ball.radius_x : radius = start_ball.radius_y;
+    if (image.isNull()) {
+        painter->setBrush(QBrush(color, Qt::SolidPattern));
+        painter->drawRect(ball.x_pos + 3 - radius/2*0.8,
+                          ball.y_pos + 3 - radius/2*0.8,
+                          radius*0.8 ,
+                          radius*0.8);
+    }
+
     painter->drawImage(QRect(ball.x_pos + 3 - radius/2*0.8,
                              ball.y_pos + 3 - radius/2*0.8,
                              radius*0.8 ,

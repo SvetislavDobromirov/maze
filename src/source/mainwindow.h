@@ -65,7 +65,7 @@ private:
     baloon start_ball, finish_ball;
     int _number_of_click;
     std::vector<line_points> array_lines;
-    void draw_ball(QImage image, baloon ball, QPainter * painter);
+    void draw_ball(QImage image, baloon ball, QPainter * painter,  QColor color);
     void init_cave();
     void sleep(qint64 msec);
     void clear(model * scheme);
