@@ -29,14 +29,11 @@ void Eller::start_create_maze_eller(model *maze_model, int rows, int cols) {
         maze_sets.push_back(0);
     }
 
-    testing tester;
     std::string str_test;
 
     int current_row = 0;
 
-        // fill_empty_value_1(cols); /
-        //testing tester;
-        //std::string str_test;
+     
         // 2. Заполняем первую строку ячейки множествами.
 
         while(1) {
@@ -44,22 +41,11 @@ void Eller::start_create_maze_eller(model *maze_model, int rows, int cols) {
 
 
 
-            str_test += tester.show_vector("1. Множество после добавления строки", maze_sets, cols, rows);
+            //str_test += tester.show_vector("1. Множество после добавления строки", maze_sets, cols, rows);
             //tester.write_string_to_file(str_test);
 
 
             create_random_borders_3_1(maze_model, cols, current_row);
-
-//            str_test += tester.show_vector("2. Множество после случайного добавления боковых границ: ", maze_sets, cols, rows);
-//            str_test += tester.show_vector("3. Боковые границы после случайного добавления границ: ",
-//                                           maze_model->first, cols, rows);
-
-
-//            str_test += tester.show_vector("4. Множество после добавления боковых границ: ", maze_sets, cols, rows);
-
-            //merge_sets_3_2(maze_model, cols, current_row);
-           // str_test += tester.show_vector("5. Множества после объединения множеств: ", maze_sets, cols, rows);
-
 
 
             if (current_row  + 1 < rows) {
@@ -68,40 +54,19 @@ void Eller::start_create_maze_eller(model *maze_model, int rows, int cols) {
                 break;
             }
 
-//            str_test += tester.show_vector("6. Множество после добавления нижних границ: ", maze_sets, cols, rows);
-//            str_test += tester.show_vector("7. Нижние границы после случайного добавления границ: ",
-//                                           maze_model->second, cols, rows);
-
             // Если новая строка, то
             // Копируем предыдущую строку в новую строку.
             //if (current_row  + 1 < rows) {
                 copy_prev_in_next_row_5_1(maze_model, cols, current_row);
-                // add_borders_3_1_1(maze_model, cols, current_row);
-            //} else
-             //   break;
-
-
+          
             current_row++;
 
        }
 
 
-//        str_test += tester.show_vector("8-0. Множество перед checked End ", maze_sets, cols, rows);
-//        str_test += tester.show_vector("9-0. Нижние границы перед случайным добавлением границ: ",
-//                                       maze_model->second, cols, rows);
-//        str_test += tester.show_vector("10-0. Боковые границы перед случайным добавлением границ: ",
-//                                       maze_model->first, cols, rows);
 
         checkedEndLine(maze_model, cols, current_row);
 
-
-//        str_test += tester.show_vector("8. Множество после checked End ", maze_sets, cols, rows);
-//        str_test += tester.show_vector("9. Нижние границы после случайного добавления границ: ",
-//                                       maze_model->second, cols, rows);
-//        str_test += tester.show_vector("10. Боковый границы после случайного добавления границ: ",
-//                                       maze_model->first, cols, rows);
-
-         //tester.write_string_to_file(str_test);
 
 
 

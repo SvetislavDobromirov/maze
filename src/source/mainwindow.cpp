@@ -239,10 +239,10 @@ void MainWindow::mousePressEvent(QMouseEvent* event) {
            // поле 500 х 500
            // Сдвиг 3
            // количеств
-           row = std::chrono::floor((event->pos().y() / 500.0) * 
-           maze_scheme.size_rows);
-           col = std::chrono::floor((event->pos().x() / 500.0) 
-           * maze_scheme.size_col);
+           row = (event->pos().y() / 500.0) * 
+           maze_scheme.size_rows;
+           col = (event->pos().x() / 500.0) 
+           * maze_scheme.size_col;
            radius_row = 500/maze_scheme.size_rows;
            radius_col =  500/maze_scheme.size_col;
            center_row =  500.0/maze_scheme.size_rows * (row) + (radius_row/2);

@@ -31,7 +31,6 @@ private:
     void addingVerticalWalls_3_1(model *maze_model, int cols, int current_row);
     void mergeSet_3_2(int index, int element, int cols);
 
-
     int counter;
 
 

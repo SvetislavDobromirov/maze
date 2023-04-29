@@ -1,3 +1,5 @@
+REPORTFOLDER = report/
+
 all: install
 
 install:
@@ -13,17 +15,22 @@ dist:
 
 dvi:
 
-tests:
+tests: clean
+	g++ -c  ./source/eller.cpp -lgtest -lgtest_main -pthread --coverage
+	g++ -o run_test *.o ./tests/start_test.cc  -lgtest -lgtest_main -pthread  --coverage
+	./run_test
+
 
 clean:
+	rm -rf *.o run_test *.gcno report *.gcda
 	cd source; make clean; rm -rf maze.app .qmake.stash
 
-gcov_report: test
+gcov_report: tests
 	mkdir -p gcov/
 	mkdir report/
-	lcov -t "s21_matrix_oop.a" -o $(REPORTFILE) -c -d .
-	genhtml $(REPORTFILE) -o $(REPORTFOLDER)
-	open $(REPORTFOLDER)index.html
+	lcov -t "s21_matrix_oop.a" -o run_test -c -d .
+	genhtml run_test -o $(REPORTFOLDER)
+	xdg-open $(REPORTFOLDER)index.html
 
 push:
 	git add --all
