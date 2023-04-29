@@ -413,7 +413,7 @@
      <item>
       <widget class="QComboBox" name="color_lines_comboBox">
        <property name="currentText">
-        <string>BLACK</string>
+        <string>RED</string>
        </property>
        <item>
         <property name="text">
@@ -439,23 +439,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>Файл</string>
-    </property>
-    <addaction name="action"/>
-   </widget>
-   <addaction name="menu"/>
   </widget>
   <action name="maze_open">
    <property name="text">
